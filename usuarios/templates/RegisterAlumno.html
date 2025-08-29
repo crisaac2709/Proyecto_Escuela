@@ -1,0 +1,73 @@
+{% extends 'auth/base.html' %}
+
+{% load static %}
+
+{% block title %} <title>Registrar Alumno</title> {% endblock %}
+
+{% block extra_css %} <link rel="stylesheet" href="{% static 'css/form.css' %}"> {% endblock %}
+
+{%block content%}
+    <div class="container-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{form.non_field_errors}}
+
+            <h1>Registro de Estudiante</h1>
+            <p>Ingresa tu informacion</p>
+
+            <div class="form-control">
+                <label for="first_name">Nombres</label>
+                {{form.first_name}}
+                {{form.first_name.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="last_name">Apellidos</label>
+                {{form.last_name}}
+                {{form.last_name.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="username">Username</label>
+                {{form.username}}
+                {{form.username.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                {{form.email}}
+                {{form.email.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="password1">Contraseña</label>
+                {{form.password1}}
+                {{form.password1.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="password2">Confirma contraseña</label>
+                {{form.password2}}
+                {{form.password2.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="codigo">Codigo</label>
+                {{form.codigo}}
+                {{form.codigo.errors}}
+            </div>
+
+            <div class="form-control">
+                <label for="imagen">Imagen</label>
+                {{form.imagen}}
+                {{form.imagen.errors}}
+            </div>
+
+            <a href="{% url 'cuentas:login' %}" class="enlace">¿Ya tienes una cuenta? Iniciar sesion</a>
+
+            <button type="submit" class="submit">Enviar</button>
+        </form>
+    </div>
+
+{%endblock%}

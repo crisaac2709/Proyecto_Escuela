@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard del Docente</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> </head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Mi Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Mis Cursos</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendario</a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> Tareas</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Calificaciones</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Mensajes</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-welcome">
+                    <h1>Bienvenido, Profesor/a! 👋</h1>
+                    <p>Aquí tienes un resumen de tu jornada.</p>
+                </div>
+                <div class="user-profile">
+                    {% if profesor.imagen %}
+                        <img src="{{ profesor.imagen.url }}" alt="Foto de perfil">
+                    {% endif %}
+                    <span>{{ profesor.user.first_name }}</span>
+                </div>
+            </header>
+
+            <section class="content-cards">
+                <div class="card">
+                    <h4>Próxima Clase</h4>
+                    <p><strong>Materia:</strong> Matemáticas Avanzadas</p>
+                    <p><strong>Hora:</strong> 10:00 AM - Aula 5B</p>
+                    <a href="#" class="card-link">Unirse a la clase</a>
+                </div>
+
+                <div class="card">
+                    <h4>Tareas por Calificar</h4>
+                    <p>Tienes <strong>12 tareas</strong> pendientes de revisión.</p>
+                    <p><strong>Curso:</strong> Física I</p>
+                    <a href="#" class="card-link">Revisar ahora</a>
+                </div>
+
+                <div class="card">
+                    <h4>Anuncios Recientes</h4>
+                    <p>No hay anuncios nuevos para tus cursos.</p>
+                    <a href="#" class="card-link">Ver todos</a>
+                </div>
+            </section>
+
+            <section class="content-table">
+                <h3>Resumen de Mis Cursos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Curso</th>
+                            <th>Estudiantes</th>
+                            <th>Progreso Promedio</th>
+                            <th>Última Actividad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Matemáticas Avanzadas</td>
+                            <td>32</td>
+                            <td>75%</td>
+                            <td>Hace 2 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Física I</td>
+                            <td>28</td>
+                            <td>60%</td>
+                            <td>Ayer</td>
+                        </tr>
+                        <tr>
+                            <td>Química General</td>
+                            <td>35</td>
+                            <td>82%</td>
+                            <td>Hace 3 días</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
